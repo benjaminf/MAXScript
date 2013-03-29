@@ -1,4 +1,4 @@
-Functions:
+bf_controllerListOP (struct) functions:
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 	actLayerByName() || actLayerByName objs:selection names:#("Anim","anim") pos:true rot:true
@@ -10,7 +10,7 @@ Functions:
 		
 		Synopsis:
 		----------
-			Activate layers based on names.
+			Activates layer(s) based on name(s).
 		
 		Optional Args:
 		--------------
@@ -38,7 +38,7 @@ Functions:
 					
 		Synopsis:
 		----------
-			Add ctrl lists on objects.
+			Adds ctrl list(s) on object(s).
 					
 		Optional Args:
 		--------------
@@ -65,7 +65,7 @@ Functions:
 					
 		Synopsis:
 		----------
-			Activate layers based on index.
+			Activates layer(s) based on index.
 					
 		Optional Args:
 		--------------
@@ -92,7 +92,7 @@ Functions:
 					
 		Synopsis:
 		----------
-			Add a new layer on #objs.
+			Adds a new layer(s) on #obj(s).
 					
 		Optional Args:
 		--------------
@@ -120,7 +120,7 @@ Functions:
 				
 		Synopsis:
 		----------
-			Changes ctrls weights.
+			Changes ctrl(s) weight(s).
 				
 		Optional Args:
 		--------------
@@ -135,6 +135,61 @@ Functions:
 			Pos - Rot are set to false.
 			
 			
+		
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+	renameLayer() || renameLayer objs:selection layer:1 newName:"bfLayernew" pos:false rot:false
+	-----------------------------------------------------------------------------------------
+					
+		Struct :
+		---------
+			bf_controllerListOP
+				
+		Synopsis:
+		----------
+			Renames layer(s).
+				
+		Optional Args:
+		--------------
+			objs      -> arrayOfObjects to work with.           (default: selectionSet) # array
+			layer     -> working layer.                         (default: 1) # integer
+			newName   -> new name.                              (default: "bfLayernew") # string
+			pos       -> works on position.                     (default: false) # boolean.
+			rot       -> works on rotation.                     (default: false) # boolean.
+						
+		Infos:
+		-------
+			Pos - Rot are set to false.
+			
+			
+		
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+	deleteLayer() || deleteLayer objs:selection layer:1 pos:false rot:false warning:false 
+	-----------------------------------------------------------------------------------------
+					
+		Struct :
+		---------
+			bf_controllerListOP
+				
+		Synopsis:
+		----------
+			Deletes layer(s).
+				
+		Optional Args:
+		--------------
+			objs      -> arrayOfObjects to work with.           (default: selectionSet) # array
+			layer     -> working layer.                         (default: 1) # integer
+			pos       -> works on position.                     (default: false) # boolean.
+			rot       -> works on rotation.                     (default: false) # boolean.
+			warning   -> delete layer(s) w/o warnings.			(default: false) #boolean.
+						
+		Infos:
+		-------
+			Pos - Rot are set to false.
+			
+			
+		
 		
 --------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------
