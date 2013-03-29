@@ -1,6 +1,6 @@
-struct bf_controllerListOP (
-public
 
+struct bf_controllerListOP (
+		
 	function help =
 	(
 		format "bf :: Controller List Operator Help \n"
@@ -17,7 +17,7 @@ public
 		format "bf_deleteLayer objs:selection layer:1 pos:false rot:false warning:false \n"
 		format "----------------------------------------------------\n"
 	)
-			
+
 ,function actLayerByName objs:selection names:#("Anim","anim") pos:true rot:true = 
 (
 	if (objs.count>0 and names.count>0)then
@@ -76,70 +76,70 @@ public
 	)
 )	
 	
-	
-	
-	
-	
-	
-,	function posList objs:selection help:false = 
+,function addCtrlList objs:selection pos:true rot:true = 
 (
 	if(objs.count>0)then
 	(
-		for i=1 to objs.count do
+	
+		if (pos)then
 		(
-			layerCount=0
-			try (layerCount=objs[i].position.controller.count)catch()
-			if (layerCount>0)then()else
-			(
-				objs[i].controller.position.controller = Position_List()
-			)
+			for i=1 to objs.count do
+					(
+						layerCount=0
+						try (layerCount=objs[i].position.controller.count)catch()
+						if (layerCount>0)then()else
+						(
+							objs[i].controller.position.controller = Position_List()
+						)
+					)
+		)
+		
+		if (rot)then
+		(
+			for i=1 to objs.count do
+				(
+						layerCount=0
+						try (layerCount=objs[i].rotation.controller.count)catch()
+						if (layerCount>0)then()else
+						(
+							objs[i].controller.rotation.controller = Rotation_List()
+						)
+				)
 		)
 		return true
 	)
 	else (return false)
 )
-,function rotList objs:selection = 
-(
-	if(objs.count>0)then
-	(
-		for i=1 to objs.count do
-		(
-			layerCount=0
-			try (layerCount=objs[i].rotation.controller.count)catch()
-			if (layerCount>0)then()else
-			(
-				objs[i].controller.rotation.controller = Rotation_List()
-			)
-		)
-		return true
-	)else(return false)
-)
+
+
+
+
+
 --Position/Roation List Activation
 -- actLayerPos objs layer
 -- actLayerRot objs layer
-,function actLayerPos objs:selection layer:1 =
+,function actLayer objs:selection layer:1 pos:true rot:true =
 (
 	if (objs.count>0 and layer>0)then
 	(
-		for i=1 to objs.count do 
+	
+		if (pos)then
 		(
-			try(objs[i].pos.controller.setActive layer) catch()
+			for i=1 to objs.count do 
+			(
+				try(objs[i].pos.controller.setActive layer) catch()
+			)
+		)
+		if (rot)then
+		(
+			for i=1 to objs.count do 
+			(
+				try(objs[i].rotation.controller.setActive layer) catch()
+			)	
 		)
 		return true
 	)
 	else(return false)
-)
-,function actLayerRot objs:selection layer:1 =
-(
-	if (objs.count>0 and layer>0)then
-	(
-		for i=1 to objs.count do 
-		(
-			try(objs[i].rotation.controller.setActive layer) catch()
-		)
-		return true
-	)
-	return false
 )
 
 -- ADD NEW Controller into the list POS/ROT SAFE ! 100% Safe
@@ -214,7 +214,7 @@ public
 
 -- CHANGE Weights SAFE
 -- changeWeight objs=#(objects) layer=1 W=weight pos=true rot=true
-,function changeWeight objs:selection layer:1 W:100 pos:false rot:false = 
+,function changeWeight objs:selection layer:1 W:100.0 pos:false rot:false = 
 (
 	if (objs.count!=0) then
 		(
