@@ -18,7 +18,7 @@ public
 		format "----------------------------------------------------\n"
 	)
 			
-,function bf_actLayerByName objs:selection names:#("Anim","anim") pos:true rot:true = 
+,function actLayerByName objs:selection names:#("Anim","anim") pos:true rot:true = 
 (
 	if (objs.count>0 and names.count>0)then
 	(
@@ -81,7 +81,7 @@ public
 	
 	
 	
-,	function bf_posList objs:selection help:false = 
+,	function posList objs:selection help:false = 
 (
 	if(objs.count>0)then
 	(
@@ -98,7 +98,7 @@ public
 	)
 	else (return false)
 )
-,function bf_rotList objs:selection = 
+,function rotList objs:selection = 
 (
 	if(objs.count>0)then
 	(
@@ -117,7 +117,7 @@ public
 --Position/Roation List Activation
 -- actLayerPos objs layer
 -- actLayerRot objs layer
-,function bf_actLayerPos objs:selection layer:1 =
+,function actLayerPos objs:selection layer:1 =
 (
 	if (objs.count>0 and layer>0)then
 	(
@@ -129,7 +129,7 @@ public
 	)
 	else(return false)
 )
-,function bf_actLayerRot objs:selection layer:1 =
+,function actLayerRot objs:selection layer:1 =
 (
 	if (objs.count>0 and layer>0)then
 	(
@@ -144,7 +144,7 @@ public
 
 -- ADD NEW Controller into the list POS/ROT SAFE ! 100% Safe
 -- addLayer objs=#(objects) layerName="name" pos=true rot=true act=activate true
-,function bf_addLayer objs:selection layerName:"bfLayer" pos:true rot:true act:false = 
+,function addLayer objs:selection layerName:"bfLayer" pos:true rot:true act:false = 
 (
 		if (objs.count > 0 and layerName!="") then
 		(
@@ -214,7 +214,7 @@ public
 
 -- CHANGE Weights SAFE
 -- changeWeight objs=#(objects) layer=1 W=weight pos=true rot=true
-,function bf_changeWeight objs:selection layer:1 W:100 pos:false rot:false = 
+,function changeWeight objs:selection layer:1 W:100 pos:false rot:false = 
 (
 	if (objs.count!=0) then
 		(
@@ -242,7 +242,7 @@ public
 
 -- RENAME Layer SAFE
 --  bf_renameLayer oobjs=#(objects) layer=1 newName pos=true rot=true
-,function bf_renameLayer objs:selection layer:1 newName:"bfLayernew" pos:false rot:false  = (
+,function renameLayer objs:selection layer:1 newName:"bfLayernew" pos:false rot:false  = (
 	
 	if(objs.count>0 and layer>0 and newName!="" and (pos or rot)) then
 	(
@@ -267,7 +267,7 @@ public
 
 -- DELETE Layer SAFE
 --  bf_deleteLayer oobjs=#(objects) layer=1 pos=true rot=true warning=FALSE
-,function bf_deleteLayer objs:selection layer:1 pos:false rot:false warning:false = (
+,function deleteLayer objs:selection layer:1 pos:false rot:false warning:false = (
 		if (objs.count>0 and layer>0 and (pos or rot)) then
 		(
 			local question="+ This will delete/break every keys/links related to the layer "+(layer as string)+" +"
